@@ -20,10 +20,12 @@ export const MainScreen = ({ addTodo, todos, removeTodo, openTodo }) => {
     )
 
     if (todos.length === 0) {
-        content = <Text>No todos</Text>
-        // <View style={styles.imgWrap}>
-        //     <Image sourse={require('../../assets/no-items.png')} />
-        // </View>
+        content = (
+        <View style={styles.imgWrap}>
+            <Image 
+            style={styles.image}
+            source={require('../../assets/no-items.png')} />
+        </View> )
     }
 
     return (
@@ -40,5 +42,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         padding: 10,
         height: 300
-    }
+    },
+    image: {
+        width: '100%',
+        height: '100%',
+        resizeMode: 'contain'
+      }
 })
