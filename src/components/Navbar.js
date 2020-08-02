@@ -18,8 +18,10 @@ const styles = StyleSheet.create({
         height: 70,
         alignItems: 'center',
         justifyContent: 'flex-end',
-        backgroundColor: THEME.MAIN_COLOR,
-        paddingBottom: 10
+        backgroundColor: THEME.GREY_COLOR,
+        paddingBottom: 10,
+        borderBottomRightRadius: 50,
+        borderBottomLeftRadius: 50
     },
     text: {
         color: 'white',

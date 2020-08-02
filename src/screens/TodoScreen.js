@@ -1,11 +1,13 @@
 import React, {useState} from 'react'
-import {StyleSheet, View, Button} from 'react-native'
+import {StyleSheet, View} from 'react-native'
+import { FontAwesome, AntDesign} from '@expo/vector-icons'
 
 import { THEME } from '../theme'
 import { AppTextBold } from '../components/ui/AppTextBold'
 
 import { AppCard } from '../components/ui/AppCard'
 import { EditModal } from '../components/EditModal'
+import { AppButton } from '../components/ui/AppButton'
 
 export const TodoScreen = ({ goBack, todo, onRemove, onSave }) => {
     const [modal, setModal] = useState(false)
@@ -16,7 +18,7 @@ export const TodoScreen = ({ goBack, todo, onRemove, onSave }) => {
     }
 
     return (
-        <View >
+        <View>
 
             <EditModal
              value={todo.title}
@@ -27,23 +29,27 @@ export const TodoScreen = ({ goBack, todo, onRemove, onSave }) => {
 
             <AppCard style={styles.appcard}>
             <AppTextBold style={styles.title}>{ todo.title }</AppTextBold>
-            <Button title='Редактировать' onPress={() => setModal(true)} />
+            <AppButton onPress={() => setModal(true)}> 
+                <FontAwesome name='edit' size={20} />
+            </AppButton>
             </AppCard>
 
             <View style={styles.buttons}>
                 <View style={styles.btn}>
-                    <Button 
-                        title='Назад' 
+                    <AppButton 
                         color={THEME.GREY_COLOR}
                         onPress={goBack}
-                    />
+                    > 
+                        <AntDesign name='back' size={20} color="#fff" />
+                    </AppButton>
                 </View>
                 <View style={styles.btn}>
-                    <Button 
-                        title='Удалить' 
+                    <AppButton 
                         color={THEME.DANGER_COLOR}
                         onPress={() => onRemove(todo.id)}
-                    />
+                    >
+                        <FontAwesome name='remove' size={20} color="#fff" />
+                    </AppButton>
                 </View>
             </View>
         </View>
